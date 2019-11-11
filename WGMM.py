@@ -1,5 +1,3 @@
-import pandas as pd 
-import json
 import zmq
 
 context = zmq.Context()
@@ -13,3 +11,6 @@ sink = context.socket(zmq.PUSH)
 sink.connect("tcp://localhost:5554")
 
 sink.send_string('1')
+
+while True:
+    datos = fan.recv_json()
